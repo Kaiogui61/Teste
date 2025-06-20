@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebolitos</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1 data-text="Taskitos">Taskitos</h1>
+                <p class="subtitle">para sala do futuro e cmsp!</p>
+            </div>
+        </header>
+
+        <section id="loginSection" class="section">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <label for="studentId">RA</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="ra" placeholder="RA + dígito + sp | ex: 123456790sp" required>
+                            <button type="button" id="clearStudentId" class="clear-btn">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" placeholder="Senha" required>
+                            <button type="button" id="togglePassword" class="toggle-btn">🙈</button>
+                            <button type="button" id="clearPassword" class="clear-btn">×</button>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" id="loginNormal" class="btn btn-secondary">
+                            Atividades Pendentes
+                        </button>
+                        <button type="button" id="loginOverdue" class="btn btn-secondary">
+                            Atividades Expiradas
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de Atividades (igual ao seu modal atual) -->
+<div id="activityModal" class="modal">
+    <div class="modal-content large">
+        <div class="modal-header">
+            <h2 id="modalTitle">Selecionar Atividades</h2>
+            <button class="close-btn" id="closeActivityModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="activity-list">
+                <div class="select-all">
+                    <label>
+                        <input type="checkbox" id="selectAll"> Selecionar Todas as Atividades
+                    </label>
+                </div>
+                <div class="activity-items" id="activityItems">
+                    <!-- Os checkboxes das tarefas vão aqui -->
+                </div>
+            </div>
+            <div class="time-settings">
+                <h3>Configurações de Tempo de Estudo</h3>
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label for="minTime">Tempo Mínimo (minutos)</label>
+                        <input type="number" id="minTime" value="1" min="0" max="60">
+                    </div>
+                    <div class="input-group">
+                        <label for="maxTime">Tempo Máximo (minutos)</label>
+                        <input type="number" id="maxTime" value="3" min="1" max="60">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="startSelected" class="btn btn-secondary">Fazer Lições Selecionadas</button>
+                <button id="startAllActivities" class="btn btn-secondary">Fazer Lições Todas</button>
+                <button id="saveDraft" class="btn btn-secondary">Fazer Lições Selecionadas como Rascunho</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="notification-container" id="notificationContainer"></div>
+    
+    <script src="src/script.js"></script>
+    
+</body>
+</html>
